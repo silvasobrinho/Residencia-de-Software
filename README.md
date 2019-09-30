@@ -1,2 +1,2 @@
 # Residencia-de-Software
-Materias das aulas de residencia de software Serratec
+Material das aulas de residencia de software da Serratec

@@ -1,0 +1,22 @@
+/* da fonte e bakcground
+p{
+    color: blue;
+    background-color: yellow;
+}
+
+*/
+h1{
+    font-family: serif;
+    }
+
+h2{
+    font-family: sans-serif;
+}
+
+p{
+    font-family: monospace;
+}
+
+h3{
+    color:rgb(255,200,0);
+}

@@ -16,14 +16,15 @@
 }
 h1{
     margin: auto;    
-    width: 350px;
+    width: 252px;
     height: 35px;
     margin-bottom: 5px;
     font-family: fantasy, Georgia, 'Times New Roman', Times, serif;
     color: #0a7575;
+    border: solid black;
     border-bottom: 9px solid slateblue;
     background-color: lightgray;
-    border-radius: 30px;
+    border-radius: 10px;
        
 }
 input{
@@ -35,8 +36,8 @@ input{
 }
 button{
     color: #0099CC; 
-    background: transparent; 
-    border: 1px dotted #0099CC;
+    background: #e3fc02; 
+    border: outset #0099CC;
     border-radius: 4px; 
     margin: 2px 2px 2px 2px;
     height: 40px;
@@ -47,6 +48,6 @@ button:hover {
     background-color: #008CBA;
     color: white; }
 input:hover{
-    background-color: rgb(131, 10, 155);
+    background-color:#0099CC;
     color: #cecece;
 }

@@ -2,14 +2,19 @@
 <html>
 
 <head>
+          <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
     <title>Mirror Fashion</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-
+ 
 </head>
 
 <body>
         <header class="container">
+      
         <h1><img src="img/logo.png" alt="Logo Mirror Fashion" title="Logo Mirror Fashion"></h1>
         <p class="sacola">
             Nenhum item na sacola de compras
@@ -27,17 +32,27 @@
 
     <main class="container destaque">
         <section class="busca">
+            <h2>Busca</h2>
             <form>
-                <input type="search"> <img src="img/search-icon.svg">
-                <button>Busca</button>
+                <input type="search">
+                <input type="image" src="img/search-icon.svg">
             </form>
         </section>
-
+        <!-- fim .busca  -->
         <section class="menu-departamentos">
             <h2>Departamentos</h2>
             <nav class="menu-vertical">
                 <ul>
-                    <li><a href="#"> </a>Blusas e Camisas </li>
+                    <li>
+                        <a href="#"> </a>Blusas e Camisas</a>
+                        <ul>
+                                <li><a href="#">Manga curta</a></li>
+                                <li><a href="#">Manga comprida</a></li>
+                                <li><a href="#">Camisa social</a></li>
+                                <li><a href="#">Camisa casual</a></li>
+                              </ul>
+                            </li>
+
                     <li><a href="#">Calças </a> </li>
                     <li><a href="#"> Saias</a> </li>
                     <li><a href="#"> Vestidos </a> </li>
@@ -48,24 +63,24 @@
             </nav>
 
         </section>
-
+        <!-- fim .menu-departamentos-->
         <section class="banner-destaque">
             <img src="img/destaque-home.png" alt="Promoçao: Big City Night" title="Promoçao: Big City Night">
 
         </section>
-
+        <!-- fim .banner-destaques--> 
     </main>
 
-    <article class="container paineis">
+    <article class="container">
 
-        <!--painéis de novidade e mais vendidos entrarao aqui-->
+        <!--os paineis de novidades e mais vendidos entrarão aqui dentro-->
 
 
         <section class="painel novidades">
             <h2>Novidades</h2>
             <nav>
                 <ol>
-
+                        <!-- primeiro produto -->
                     <li>
                         <a href="produto.html">
                             <figure>
@@ -113,17 +128,7 @@
                             </figure>
                     </li>
 
-                    <!--Coloque mais produtos aqui-->
-                    </a>
-                    </li> </a> </li>
-                    </a>
-                    </li>
-                    </a>
-                    </li>
-                    </a>
-                    </li>
-                </ol>
-                </li>
+                </ol>                      
             </nav>
 
         </section>
@@ -131,7 +136,7 @@
     <article class="container paineis">
         <!--painéis de novidade e mais vendidos entrarao aqui-->
         <section class="painel mais-vendidos">
-            <h2>Novidades</h2>
+            <h2>Mais Vendidos</h2>
             <nav>
                 <ol>
                     <!--primeiro produto-->
@@ -174,8 +179,7 @@
                         <a href="produto.html">
                             <figure>
                                 <img src="img/produtos/miniatura14.png" alt="miniatura1" title="miniatura1">
-                                <figcaption>Blusao por R$ 65,00
-                                </figcaption>
+                                <figcaption>Blusao por R$ 65,00</figcaption>
                             </figure>
                     </li>
 
@@ -184,8 +188,7 @@
                         <a href="produto.html">
                             <figure>
                                 <img src="img/produtos/miniatura5.png" alt="miniatura5" title="miniatura1">
-                                <figcaption>Blusa esportiva por
-                                    R$40,00</figcaption>
+                                <figcaption>Blusa esportiva por R$40,00</figcaption>
                             </figure>
                         </a>
 
@@ -197,15 +200,15 @@
     <!--Fim container paineis-->
 
     <footer>
-        <div class="container">
-            <img src="img/logo-rodape.png" alt="Logo Mirror-Fashion" title="Logo Mirror-fashion">
-            <ul class="social">
-                <li><a href="htpp://facebook.com/mirrorfashion"></a></li>
-                <li><a href="htpp://twitter.com/mirrorfashion"></a></li>
-                <li><a href="htpp://plus.google.com/mirrorfashion"></a></li>
-            </ul>
-        </div>
-    </footer>
+            <div class="container">
+                <img src="img/logo-rodape.png" alt="Logo Mirror Fashion"/>
+                <ul class="social">
+                    <li><a href="http://facebook.com/mirrorfashion">Facebook</a></li>
+                    <li><a href="http://twitter.com/mirrorfashion">Twitter</a></li>
+                    <li><a href="http://plus.google.com/mirrorfashion">Google+</a></li>
+                </ul>
+            </div>
+            </footer>
 </body>
 
 </html>

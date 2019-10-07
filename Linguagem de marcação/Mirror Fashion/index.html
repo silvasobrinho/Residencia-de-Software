@@ -2,19 +2,19 @@
 <html>
 
 <head>
-          <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
     <title>Mirror Fashion</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
- 
+
 </head>
 
 <body>
-        <header class="container">
-      
+    <header class="container">
+
         <h1><img src="img/logo.png" alt="Logo Mirror Fashion" title="Logo Mirror Fashion"></h1>
         <p class="sacola">
             Nenhum item na sacola de compras
@@ -29,13 +29,13 @@
             </ul>
         </nav>
     </header>
-
-    <main class="container destaque">
+    <!-- Começo busca-->
+    <div class="container destaque">
         <section class="busca">
             <h2>Busca</h2>
             <form>
                 <input type="search">
-                <input type="image" src="img/search-icon.svg">
+                <button>Buscar</button>
             </form>
         </section>
         <!-- fim .busca  -->
@@ -46,12 +46,12 @@
                     <li>
                         <a href="#"> </a>Blusas e Camisas</a>
                         <ul>
-                                <li><a href="#">Manga curta</a></li>
-                                <li><a href="#">Manga comprida</a></li>
-                                <li><a href="#">Camisa social</a></li>
-                                <li><a href="#">Camisa casual</a></li>
-                              </ul>
-                            </li>
+                            <li><a href="#">Manga curta</a></li>
+                            <li><a href="#">Manga comprida</a></li>
+                            <li><a href="#">Camisa social</a></li>
+                            <li><a href="#">Camisa casual</a></li>
+                        </ul>
+                    </li>
 
                     <li><a href="#">Calças </a> </li>
                     <li><a href="#"> Saias</a> </li>
@@ -68,8 +68,8 @@
             <img src="img/destaque-home.png" alt="Promoçao: Big City Night" title="Promoçao: Big City Night">
 
         </section>
-        <!-- fim .banner-destaques--> 
-    </main>
+        <!-- fim .banner-destaques-->
+    </div>
 
     <article class="container">
 
@@ -78,137 +78,143 @@
 
         <section class="painel novidades">
             <h2>Novidades</h2>
-            <nav>
-                <ol>
-                        <!-- primeiro produto -->
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura1.png" alt="miniatura1" title="miniatura1">
-                                <figcaption>Blazer floral por R$130,00</figcaption>
-                            </figure>
-                            <!--Fim do primeiro produto-->
-                    </li>
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura2.png" alt="miniatura2" title="miniatura2">
-                                <figcaption>Camisa 'Bad to bone' por R$ 60,00</figcaption>
-                            </figure>
-                    </li>
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura3.png" alt="miniatura3" title="miniatura3">
-                                <figcaption>Cardigan por R$ 90,00</figcaption>
-                            </figure>
-                    </li>
+            <ol>
+                <!-- primeiro produto -->
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura1.png" alt="miniatura1" title="miniatura1">
+                            <figcaption>Blazer floral por R$130,00</figcaption>
+                        </figure>
+                    </a>
+                    <!--Fim do primeiro produto-->
+                </li>
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura2.png" alt="miniatura2" title="miniatura2">
+                            <figcaption>Camisa 'Bad to bone' por R$ 60,00</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura3.png" alt="miniatura3" title="miniatura3">
+                            <figcaption>Cardigan por R$ 90,00</figcaption>
+                        </figure>
+                    </a>
+                </li>
 
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura4.png" alt="miniatura4" title="miniatura4">
-                                <figcaption>Casaco pesado por R$ 190,00</figcaption>
-                            </figure>
-                    </li>
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura4.png" alt="miniatura4" title="miniatura4">
+                            <figcaption>Casaco pesado por R$ 190,00</figcaption>
+                        </figure>
+                    </a>
 
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura5.png" alt="miniatura5" title="miniatura5">
-                                <figcaption>Regata por R$35,00</figcaption>
-                            </figure>
-                    </li>
+                </li>
 
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura6.png" alt="miniatura1" title="miniatura1">
-                                <figcaption>Regata por R$ 35,00</figcaption>
-                            </figure>
-                    </li>
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura5.png" alt="miniatura5" title="miniatura5">
+                            <figcaption>Regata por R$35,00</figcaption>
+                        </figure>
+                    </a>
+                </li>
 
-                </ol>                      
-            </nav>
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura6.png" alt="miniatura1" title="miniatura1">
+                            <figcaption>Regata por R$ 35,00</figcaption>
+                        </figure>
+                    </a>
+                </li>
 
+            </ol>
         </section>
     </article>
     <article class="container paineis">
         <!--painéis de novidade e mais vendidos entrarao aqui-->
         <section class="painel mais-vendidos">
             <h2>Mais Vendidos</h2>
-            <nav>
-                <ol>
-                    <!--primeiro produto-->
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura9.png" alt="miniatura7" title="miniatura7">
-                                <figcaption>Blusao Xadrez por R$89,99</figcaption>
-                            </figure>
-                            <!--Fim do primeiro produto-->
-                    </li>
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura12.png" alt="miniatura12" title="miniatura12">
-                                <figcaption>Blusao azul R$67,00</figcaption>
-                            </figure>
+            <ol>
+                <!--primeiro produto-->
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura9.png" alt="miniatura7" title="miniatura7">
+                            <figcaption>Blusao Xadrez por R$89,99</figcaption>
+                        </figure>
+                    </a>
+                    <!--Fim do primeiro produto-->
+                </li>
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura12.png" alt="miniatura12" title="miniatura12">
+                            <figcaption>Blusao azul R$67,00</figcaption>
+                        </figure>
+                    </a>
 
-                    </li>
-
-
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura8.png" alt="miniatura8" title="miniatura8">
-                                <figcaption>Blusa borboleta por R$56,00</figcaption>
-                            </figure>
-
-                    </li>
-
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura11.png" alt="miniatura11" title="miniatura11">
-                                <figcaption>Short verao por R$75,00</figcaption>
-                            </figure>
-                    </li>
-
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura14.png" alt="miniatura1" title="miniatura1">
-                                <figcaption>Blusao por R$ 65,00</figcaption>
-                            </figure>
-                    </li>
+                </li>
 
 
-                    <li>
-                        <a href="produto.html">
-                            <figure>
-                                <img src="img/produtos/miniatura5.png" alt="miniatura5" title="miniatura1">
-                                <figcaption>Blusa esportiva por R$40,00</figcaption>
-                            </figure>
-                        </a>
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura8.png" alt="miniatura8" title="miniatura8">
+                            <figcaption>Blusa borboleta por R$56,00</figcaption>
+                        </figure>
+                    </a>
 
-                    </li>
-                </ol>
-            </nav>
+                </li>
+
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura11.png" alt="miniatura11" title="miniatura11">
+                            <figcaption>Short verao por R$75,00</figcaption>
+                        </figure>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura14.png" alt="miniatura1" title="miniatura1">
+                            <figcaption>Blusao por R$ 65,00</figcaption>
+                        </figure>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="produto.html">
+                        <figure>
+                            <img src="img/produtos/miniatura5.png" alt="miniatura5" title="miniatura1">
+                            <figcaption>Blusa esportiva por R$40,00</figcaption>
+                        </figure>
+                    </a>
+                </li>
+            </ol>
         </section>
     </article>
     <!--Fim container paineis-->
 
     <footer>
-            <div class="container">
-                <img src="img/logo-rodape.png" alt="Logo Mirror Fashion"/>
-                <ul class="social">
-                    <li><a href="http://facebook.com/mirrorfashion">Facebook</a></li>
-                    <li><a href="http://twitter.com/mirrorfashion">Twitter</a></li>
-                    <li><a href="http://plus.google.com/mirrorfashion">Google+</a></li>
-                </ul>
-            </div>
-            </footer>
+        <div class="container">
+            <img src="img/logo-rodape.png" alt="Logo Mirror Fashion" />
+            <ul class="social">
+                <li><a href="http://facebook.com/mirrorfashion">Facebook</a></li>
+                <li><a href="http://twitter.com/mirrorfashion">Twitter</a></li>
+                <li><a href="http://plus.google.com/mirrorfashion">Google+</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

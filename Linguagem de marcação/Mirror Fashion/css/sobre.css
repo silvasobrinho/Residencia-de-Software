@@ -1,94 +1,115 @@
-body{
+body {
     margin-left: auto;
-    margin-right:auto;
-    width:940px;
-    color:#333333;
-    font-family:"Lucinda Sans Unicode", "Lucinda Grande", sans-serif;
+    margin-right: auto;
+    width: 940px;
+    color: #333333;
+    font-family: "Lucinda Sans Unicode", "Lucinda Grande", sans-serif;
 }
 
-
-h1{ 
-    background-image:url(../img/sobre-background.jpg);
-    padding:10px;
-    
+h1 {
+    background-image: url(../img/sobre-background.jpg);
+    padding: 10px;
 }
 
-h1 + p{
+h1+p {
     text-indent: 0;
 }
 
-h2{
-    border-bottom:2px solid #333333;
-    margin-top:30px;
+h2 {
+    border-bottom: 2px solid #333333;
+    margin-top: 30px;
 }
 
-p{
-    padding:0 45px;
-    text-indent:15px;
-    text-align:justify;
+p {
+    padding: 0 45px;
+    text-indent: 15px;
+    text-align: justify;
 }
 
-p::first-letter{
+p::first-letter {
     font-weight: bold;
     font-variant: small-caps;
 }
 
-
-
-figure{
-    padding:15px;
-    margin:30px;
+figure {
+    padding: 15px;
+    margin: 30px;
     background-color: #f2eded;
-    border:1px double#ccc;
+    border: 1px double#ccc;
     text-align: center;
 }
 
-
-figcaption{
-    margin-top:10px;
+figcaption {
+    margin-top: 10px;
 }
 
-#centro-distribuicao{
-    margin-left:auto;
-    margin-right:auto;
-    width:550px;
+#centro-distribuicao {
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
 }
+
 
 /*#centro-distribuicao img{
     width: 200px;
     height: 200px;*/
-}
-
-footer{
-    color:#777;
-    margin:30px;
-    padding:30px 0;
 
 
 }
-
-footer img{
-    margin-right:30px;
-    vertical-align:middle;
-    width:94px;
+footer {
+    color: #777;
+    margin: 30px;
+    padding: 30px 0;
 }
-
-#familia-pelho{
+footer img {
+    margin-right: 30px;
+    vertical-align: middle;
+    width: 94px;
+}
+#familia-pelho {
     /*float: center;*/
+    
     float: right;
     margin: 0 0 10px 10px;
-
 }
-
-
-#rodape{
+#rodape {
     color: #777;
     margin: 30px 0;
     padding: 30px 0;
 }
-
-#rodape img{
+#rodape img {
     margin-right: 30px;
     vertical-align: middle;
     width: 94px;
+}
+
+}
+.social a {
+    height: 32px;
+    width: 32px;
+    display: block;
+    text-indent: -9999px;
+    top: 12px;
+    right: 0;
+}
+.social {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+.social li {
+    float: left;
+    margin-left: 25px;
+}
+.social a[href*="facebook.com"] {
+    background-image: url(../img/facebook.png);
+}
+.social a[href*="twitter.com"] {
+    background-image: url(../img/twitter.png);
+}
+.social a[href*="plus.google.com"] {
+    background-image: url(../img/googleplus.png);
+}
+footer .container {
+    position: relative;
 }

@@ -89,11 +89,18 @@ INSERT INTO pauta values
 
 -- 1. Atualizar o e-mail da aluna Manuela Botelho para mb@residencia.com.br (3 pontos):
 
---<insira o sql aqui>
+update aluno set email = 'mb@residencia.com.br' WHERE nome = 'Manuela Botelho';
 
 -- 2. Atualizar a nota 3 do aluno João Pedro Carvalho em Banco de dados para 7 (3 pontos):
 
---<insira o sql aqui>
+--update pauta set avaliacao_3 = 7 WHERE disciplina.id_disciplina = pauta.id_disciplina and disciplina.nome like 'Banco de dados' and aluno.matricula = pauta.matricula and aluno.nome like 'João Pedro Carvalho';
+
+update pauta 
+set avaliacao_3 = 7
+inner join disciplina on pauta.id_disciplina = disciplina.id_disciplina
+inner join aluno on aluno.matricula = pauta.matricula
+where aluno.nome = 'João Pedro Carvalho' and disciplina.nome = 'Banco de dados';
+
 
 -----------------------------------
 -- Consultas ----------------------
@@ -101,38 +108,61 @@ INSERT INTO pauta values
 
 -- 1. Selecionar o nome e a turma dos alunos (1 ponto):
 
---<insira o sql aqui>
+select nome, turma from aluno;
 
 -- 2. Selecionar a quantidade total de alunos cadastrados (2 pontos):
 
---<insira o sql aqui>
+select count(matricula) from aluno;
 
 -- 3. Selecionar a quantidade total de alunos em cada disciplina (4 pontos):
 
---<insira o sql aqui>
+select id_disciplina, count(id_disciplina) from pauta where id_disciplina=1;
+select id_disciplina, count(id_disciplina) from pauta where id_disciplina=2;
+select id_disciplina, count(id_disciplina) from pauta where id_disciplina=3;
 
 -- 4. Selecionar o nome do aluno, disciplina e as três notas de cada aluno (usando INNER JOIN ou WHERE) (4 pontos):
 
---<insira o sql aqui>
+select aluno.nome,disciplina.nome,pauta.avaliacao_1,pauta.avaliacao_2,pauta.avaliacao_3 
+from aluno, pauta, disciplina
+WHERE aluno.matricula = pauta.matricula AND
+disciplina.id_disciplina = pauta.id_disciplina;
 
 -- 5. Selecionar o nome dos alunos e a quantidade de disciplinas que cada um cursa (4 pontos):
 
---<insira o sql aqui>
+select aluno.nome, count(pauta.id_disciplina) 
+from aluno, pauta
+where aluno.matricula = pauta.matricula GROUP BY nome;
 
 -- 6. Selecionar o nome, disciplina e a média das três notas de cada aluno (4 pontos):
 
---<insira o sql aqui>
+select aluno.nome, pauta.id_disciplina , (pauta.avaliacao_1+pauta.avaliacao_2+pauta.avaliacao_3)/3 
+from aluno inner join pauta 
+on aluno.matricula = pauta.matricula;
 
 -- 7. Selecionar o nome, disciplina e a média das três notas dos alunos que tenham média menor que 6 (4 pontos):
 
---<insira o sql aqui>
+select aluno.nome, pauta.id_disciplina , (pauta.avaliacao_1+pauta.avaliacao_2+pauta.avaliacao_3)/3 
+from aluno inner join pauta 
+on aluno.matricula = pauta.matricula
+WHERE (pauta.avaliacao_1 + pauta.avaliacao_2 + pauta.avaliacao_3)/3 <6;
 
 -- 8. Selecionar o nome da disciplina e as médias das 3 notas (separadamente) de todos os alunos para cada disciplina (4 pontos):
 
---<insira o sql aqui>
+select disciplina.nome,
+round(avg (avaliacao_1),2) as med1,
+round(avg (avaliacao_2),2) as med2,
+round(avg (avaliacao_3),2) as med3
+from pauta 
+inner JOIN disciplina 
+on disciplina.id_disciplina = pauta.id_disciplina
+group BY disciplina.nome;
+
 
 -- 9. Selecione o aluno com maior nota na avaliação 1 de banco de dados, mostrando qual foi a nota (4 pontos):
 
---<insira o sql aqui>
-
-
+SELECT aluno.nome , disciplina.nome, pauta.avaliacao_1 as mnota
+from aluno, pauta, disciplina 
+WHERE pauta.matricula = aluno.matricula 
+AND pauta.id_disciplina = (select disciplina.id_disciplina where disciplina.nome like '%dados')
+AND pauta.avaliacao_1 = (SELECT max (pauta.avaliacao_1) from pauta)
+GROUP by aluno.nome;

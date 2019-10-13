@@ -3,12 +3,17 @@ body {
     margin-right: auto;
     width: 940px;
     color: #333333;
-    font-family: "Lucinda Sans Unicode", "Lucinda Grande", sans-serif;
-}
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    line-height: 1.5em;
+    }
 
 h1 {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
     background-image: url(../img/sobre-background.jpg);
-    padding: 10px;
+    padding: 20px;
+    margin: 20px 0 20px;
 }
 
 h1+p {
@@ -17,13 +22,15 @@ h1+p {
 
 h2 {
     border-bottom: 2px solid #333333;
-    margin-top: 30px;
+    margin: 30px 10px;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 p {
+    margin: 10px 0 10px;
     padding: 0 45px;
-    text-indent: 15px;
-    text-align: justify;
+	text-indent: 15px;
 }
 
 p::first-letter {
@@ -49,13 +56,11 @@ figcaption {
     width: 550px;
 }
 
-
 /*#centro-distribuicao img{
     width: 200px;
-    height: 200px;*/
-
-
-}
+    height: 200px;
+}*/
+/*
 footer {
     color: #777;
     margin: 30px;
@@ -65,25 +70,15 @@ footer img {
     margin-right: 30px;
     vertical-align: middle;
     width: 94px;
-}
+}*/
+
 #familia-pelho {
     /*float: center;*/
     
     float: right;
     margin: 0 0 10px 10px;
 }
-#rodape {
-    color: #777;
-    margin: 30px 0;
-    padding: 30px 0;
-}
-#rodape img {
-    margin-right: 30px;
-    vertical-align: middle;
-    width: 94px;
-}
 
-}
 .social a {
     height: 32px;
     width: 32px;
@@ -92,27 +87,96 @@ footer img {
     top: 12px;
     right: 0;
 }
+
 .social {
     position: absolute;
-    top: 20px;
-    right: 0;
+    top: 10px;
+    right: 50px;
 }
+
 .social li {
     float: left;
     margin-left: 25px;
 }
+
 .social a[href*="facebook.com"] {
     background-image: url(../img/facebook.png);
 }
+
 .social a[href*="twitter.com"] {
     background-image: url(../img/twitter.png);
 }
+
 .social a[href*="plus.google.com"] {
     background-image: url(../img/googleplus.png);
 }
+
 footer .container {
     position: relative;
 }
+
+/*
 :not(p)+p::first-line {
     font-variant: small-caps;
+}*/
+
+footer {
+    margin: 20px 0;
+    padding: 20px 20px;
+    background-image: url(../img/fundo-rodape.png);
+    clear: both;
+    display: block;
+}
+
+#logo{
+    margin-top: 10px;
+}
+
+.sacola {
+    background-image: url(../img/sacola.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    font-size: 0.95em;
+    padding-right: 35px;
+    text-align: right;
+    width: 140px;
+    padding-top: 8px;
+    position: absolute;
+    top: 0;
+    right: 25%;
+}
+
+.menu-opcoes {
+   
+   width: auto;
+   position: absolute;
+   top: 80px;
+   right: 25%;
+    
+}
+
+.menu-opcoes ul {
+    font-size: 15px;
+}
+
+.menu-opcoes a {
+    color: #003366;
+}
+
+.menu-opcoes a:hover {
+    color: #007dc6;
+}
+
+.menu-opcoes a:active {
+    color: #867dc6;
+}
+
+.menu-opcoes ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.container {
+    margin: auto auto;
+    width: 940px;
 }

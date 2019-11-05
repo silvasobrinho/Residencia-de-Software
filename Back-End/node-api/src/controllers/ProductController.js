@@ -8,3 +8,7 @@ module.exports = {
         return res.json(products)
     }
 }
+
+async store(req,res){
+  
+};

@@ -7,4 +7,6 @@ const Product = mongoose.model('Product');
 
 routes.get('/products', ProductController.index);
 
+routes.post('/products', ProductController.store);
+
 module.exports = routes;

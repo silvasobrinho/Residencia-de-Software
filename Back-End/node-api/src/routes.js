@@ -21,16 +21,16 @@ routes.post('/products',ProductController.store);
 
 
 
-routes.get("/",(req,res)=>{
+// routes.get("/",(req,res)=>{
 
-    Product.create({
-        title:'Aplle',
-        description:'MacBook',
-        url:'http://www.apple.com',
-    });
+//     Product.create({
+//         title:'Aplle',
+//         description:'MacBook',
+//         url:'http://www.apple.com',
+//     });
 
-    return res.send('Pagina inicial node-api na rota');
-})
+//     return res.send('Pagina inicial node-api na rota');
+// })
 
 
 

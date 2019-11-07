@@ -1,34 +1,32 @@
-const express=require('express');
-const Sequelize=require('sequelize');
 const bodyParser=require('body-parser');
-const app=express();
+
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //BLOCO DE CONEXÃO SEQUELIZE COM POSTGREES
-const sequelize=new Sequelize('post','postgres','01123581321',{
+/* const sequelize=new Sequelize('post','postgres','01123581321',{
     host:'localhost',
     port:'5432',
     dialect:'postgres'
-});
+}); */
 
 
 //CRIAÇÃO DE TABELAS------------------------------------------------------ 
 
 //CRIAÇÃO DA TABELA POST 
 
-const Post =sequelize.define('post',{
+/* const Post =sequelize.define('post',{
     title:{
         type:Sequelize.STRING
     },
     content:{
         type:Sequelize.TEXT
     }
-});
+}); */
 
 // CRIAÇÃO DA TABELA  USER
-
+/*
 const User=sequelize.define('users',{
     
     firstName:{
@@ -72,7 +70,7 @@ User.create({
 //INSERINDO AS ROTAS 
 
 //LISTANDO-------------------------------------------
-
+/* 
 app.get('/list/users',async(req,res)=>{
     const user=await User.findAll({include:[{all:true}]});
     return res.json(user);
@@ -133,7 +131,7 @@ app.delete('/delete/post/:id',async(req,res)=>{
     await post.destroy();
     return res.send();
 })
-
+ */
 
 
 

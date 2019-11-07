@@ -1,10 +1,42 @@
-const express = require ('express');
-const mongoose = require('mongoose');
-const routes = express.Router();
-const ProductController = require('./controllers/ProductController');
+// Importações de modulos
 
-const Product = mongoose.model('Product');
+const express=require('express');
 
-routes.get('/products', ProductController.index);
+const routes=express.Router();
 
-module.exports = routes;
+const ProductController=require('./controllers/ProductController');
+
+//Função 
+
+routes.get('/products',ProductController.index);
+
+routes.get('/products/:id',ProductController.show);
+
+routes.put('/products/:id/',ProductController.update);
+
+routes.delete('/products/:id/',ProductController.destroy);
+
+routes.post('/products',ProductController.store);
+
+
+
+
+routes.get("/",(req,res)=>{
+
+    Product.create({
+        title:'Aplle',
+        description:'MacBook',
+        url:'http://www.apple.com',
+    });
+
+    return res.send('Pagina inicial node-api na rota');
+})
+
+
+
+
+
+
+//Exportação dos modulod
+
+module.exports=routes;

@@ -1,22 +1,23 @@
 const Sequelize = require('sequelize');
+const bd = require('../../db');
 
 
-const User=sequelize.define('users',{
+const User= bd.define('users',{
     
     firstName:{
-        type:Sequelize.STRING,
+        type: Sequelize.STRING,
         required:true
     },
     lastName:{
-        type:Sequelize.STRING,
+        type: Sequelize.STRING,
         required:true
     },
     age:{
-        type:Sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         required:true
     },
     email:{
-        type:Sequelize.STRING,
+        type: Sequelize.STRING,
         required:true
     }
 });

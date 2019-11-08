@@ -1,11 +1,12 @@
 const Sequelize = require('sequelize')
+const bd = require('../../db');
 
-const Post =sequelize.define('post',{
+const Post = bd.define('posts',{
     title:{
-        type:Sequelize.STRING
+        type: Sequelize.STRING
     },
     content:{
-        type:Sequelize.TEXT
+        type: Sequelize.TEXT
     }
 });
 

@@ -1,19 +1,23 @@
 const express=require('express');
+const Sequelize = require('sequelize');
 const requireDir=require('require-dir');
+const bodyParser = require('body-parser');
 const app=express();
 
-
+const routes = require('./src/router');
+const bd = require('./db')
 requireDir("./src/models");
-var db = require('./db');
+
 app.use(express.json());
 
-app.use('/api',require('./src/routes'));
+app.use('/list',require('./src/router'));
 
-var UserController = require('./src/controllers/UserController');
-app.use('/src/users', UserController);
 
-var PostController = require('./src/controllers/PostController');
-app.use('/src/posts', PostController);
+bd.authenticate()
+    .then(()=> console.log("Conectado ao banco..."))
+    .catch(err => console.log("Error: ",err));
+
+
 
 module.exports = app;
 

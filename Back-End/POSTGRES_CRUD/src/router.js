@@ -4,6 +4,8 @@ const routes=express.Router();
 
 const PostController = require('./controllers/PostController');
 const UserController = require('./controllers/UserController');
+const UserPostController = require('./controllers/UserPostController');
+
 
 routes.get('/list/posts',PostController.list);
 routes.get('/list/posts/:id',PostController.busca);
@@ -19,7 +21,11 @@ routes.put('/update/user/:id',UserController.atualiza);
 routes.delete('/delete/user/:id',UserController.apaga);
 
 
-
+routes.get('/list/user_posts',UserPostController.list);
+routes.get('/list/user_posts/:id',UserPostController.busca);
+routes.post('/register/user_posts',UserPostController.registro);
+routes.put('/update/user_posts/:id',UserPostController.atualiza);
+routes.delete('/delete/user_posts/:id',UserPostController.apaga);
 
 module.exports=routes;
 

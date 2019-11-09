@@ -1,16 +1,13 @@
 const Sequelize = require ('sequelize');
 const User = require('../models/user');
+
+
 module.exports={
-    async index(req,res){
+    //listagem
+    async list(req,res){
         const user = await User.findAll();
         return res.json(user);
     },
-
-//listagem
-async list(req,res){
-    const user=await User.findAll({include:[{all:true}]});
-    return res.json(user);
-},
 
 //busca
 

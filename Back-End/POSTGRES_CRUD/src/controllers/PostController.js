@@ -3,16 +3,11 @@ const Post = require('../models/post');
 
 
 module.exports = {
-    async index(req, res){
+    //listagem
+    async list(req, res){
         const post = await Post.findAll();
         return res.json(post)
     },
-
-//listagem
-async list(req,res){
-    const post=await Post.findAll({});
-    return res.json(post);
-},
 
 //busca
 

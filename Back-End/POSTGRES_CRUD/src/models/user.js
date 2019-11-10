@@ -21,5 +21,5 @@ const User= bd.define('users',{
         required:true
     }
 });
-
+// Executar na primeira vez somente   User.sync({ force: true });
 module.exports = User;

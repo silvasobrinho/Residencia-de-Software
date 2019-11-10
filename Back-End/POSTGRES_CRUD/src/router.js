@@ -5,7 +5,7 @@ const routes=express.Router();
 const PostController = require('./controllers/PostController');
 const UserController = require('./controllers/UserController');
 const UserPostController = require('./controllers/UserPostController');
-
+ 
 
 routes.get('/list/posts',PostController.list);
 routes.get('/list/posts/:id',PostController.busca);

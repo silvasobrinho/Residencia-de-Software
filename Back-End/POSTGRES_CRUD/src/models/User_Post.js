@@ -20,5 +20,5 @@ const UserPost = db.define('user_post', {
         }
     }
 });
-
+UserPost.sync({ force: true });
 module.exports = UserPost;

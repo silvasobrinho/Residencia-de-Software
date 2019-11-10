@@ -9,5 +9,5 @@ const Post = bd.define('posts',{
         type: Sequelize.TEXT
     }
 });
-
+// Executar na primeira vez somente  Post.sync({ force: true });
 module.exports = Post;

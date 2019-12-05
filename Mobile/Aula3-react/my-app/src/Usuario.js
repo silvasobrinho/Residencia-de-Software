@@ -5,7 +5,7 @@ import "./App.css";
 export default class CadastroUsuario extends Component {
   constructor() {
     super();
-    this.state = { nome: "", pessoas: ["Maria", "Pedro", "Joana"] };
+    this.state = {  pessoas: ["Maria", "Pedro", "Joana"] };
 
     this.cadastrarUsuario = this.cadastrarUsuario.bind(this);
     this.remover = this.remover.bind(this);
@@ -18,9 +18,9 @@ export default class CadastroUsuario extends Component {
 
     //para não escrever quando o cmapo esta vazio 
     if (evento.target[0].value) {
-      console.log(evento.target[0].value)
       this.setState({
         pessoas: this.state.pessoas.concat([evento.target[0].value])
+        
       })
     }
   }
@@ -29,7 +29,7 @@ export default class CadastroUsuario extends Component {
     evento.preventDefault();
     let pessoas = this.state.pessoas;
     let pessoaEditar = this.state.inputValue;
-    let acheiIndex = pessoas.findIndex(x => x == pessoaEditar);
+    let acheiIndex = pessoas.findIndex(x => x === pessoaEditar);
     //removo do vetor
     this.state.pessoas.splice(acheiIndex, 1);
     //se não existir não retira
@@ -57,8 +57,8 @@ export default class CadastroUsuario extends Component {
           <button onClick={this.remover}>Remover</button>
         </form>
         <ul>
-          {this.state.pessoas.map(nome => (
-            <li>{nome}</li>
+          {this.state.pessoas.map((nome, index) => (
+            <li key={index}>{nome}</li>
 
           ))}
 

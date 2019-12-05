@@ -5,8 +5,18 @@ import "./App.css";
 export default class CadastroUsuario extends Component {
   constructor() {
     super();
-    this.state = {  pessoas: ["Maria", "Pedro", "Joana"] };
-
+    this.state =  { "pessoas": [
+                              {"nome": "maria",
+                              "email": "maria@maria",
+                              "telefone": "24745649874" },
+                              {"nome": "Pedro",
+                              "email": "Pedro@pedroca@maria",
+                              "telefone": "2198744984" },
+                              {"nome": "Joana",
+                              "email": "Joana@joaninhavoa",
+                              "telefone": "1132165468" }
+                              ]
+                                }  
     this.cadastrarUsuario = this.cadastrarUsuario.bind(this);
     this.remover = this.remover.bind(this);
     this.guardovalor = this.guardovalor.bind(this);
@@ -20,7 +30,7 @@ export default class CadastroUsuario extends Component {
     if (evento.target[0].value) {
       this.setState({
         pessoas: this.state.pessoas.concat([evento.target[0].value])
-        
+
       })
     }
   }
@@ -52,17 +62,35 @@ export default class CadastroUsuario extends Component {
     return (
       <>
         <form onSubmit={this.cadastrarUsuario}>
+          <label>Nome</label>
           <input type="text" value={this.state.value} onChange={this.guardovalor} />
+          <label>Email</label>
+          <input type="email" value={this.state.value} onChange={this.guardovalor} />
+          <label>Telefone</label>
+          <input type="tel" value={this.state.value} onChange={this.guardovalor} />
           <input type="submit" />
           <button onClick={this.remover}>Remover</button>
         </form>
-        <ul>
-          {this.state.pessoas.map((nome, index) => (
-            <li key={index}>{nome}</li>
 
-          ))}
+        <table>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            </tr>
+            <tr>
+          {this.state.pessoas.forEach((element) => {
+            element.forEach(elemento => {
+           <td> {elemento} </td>
+            })
+          })
+        }
+            
 
-        </ul>
+         
+
+        </tr>
+        </table>
       </>
     );
   }

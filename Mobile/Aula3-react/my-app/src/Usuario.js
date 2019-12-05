@@ -7,14 +7,28 @@ export default class CadastroUsuario extends Component {
   constructor() {
     super();
     this.state = { nome: "", pessoas: ["Maria", "Pedro", "Joana"] };
-    console.log(this.state.pessoas)
+      
+    this.cadastrarUsuario = this.cadastrarUsuario.bind(this);
+  }
+
+
+  cadastrarUsuario(evento) {
+    evento.preventDefault();
+    //tem que setar o state cabaço, assim não vai
+   /*  this.state.pessoas.push(evento.target[0].value); */
+
+   this.setState({
+     pessoas: this.state.pessoas.concat([evento.target[0].value])
+   })
+  
+    
   }
 
   render() {
     return (
       <>
         <form onSubmit={this.cadastrarUsuario}>
-          <input  type="text"  placeholder="Nome" />
+        <input type="text" value={this.state.value} onChange={this.handleChange} />
           <input type="submit" />
         </form>
         <ul>
@@ -27,13 +41,6 @@ export default class CadastroUsuario extends Component {
       </>
     );
   }
-
-  cadastrarUsuario(evento) {
-    evento.preventDefault();
   
-    console.log(evento.target[0].value);
-    
-    console.log(this)
-   //this.state.pessoas.push(evento.target[0].value);
-  }
+  
 }

@@ -5,57 +5,30 @@ import "./App.css";
 export default class CadastroUsuario extends Component {
   constructor() {
     super();
-    this.state =  { "pessoas": [
-                              {"nome": "maria",
-                              "email": "maria@maria",
-                              "telefone": "24745649874" },
-                              {"nome": "Pedro",
-                              "email": "Pedro@pedroca@maria",
-                              "telefone": "2198744984" },
-                              {"nome": "Joana",
-                              "email": "Joana@joaninhavoa",
-                              "telefone": "1132165468" }
-                              ]
-                                }  
+    this.state = {
+      nome: "",
+      email: "",
+      telefone: "",
+      pessoas: []
+    }
+
     this.cadastrarUsuario = this.cadastrarUsuario.bind(this);
-    this.remover = this.remover.bind(this);
-    this.guardovalor = this.guardovalor.bind(this);
+    this.excluir = this.excluir.bind(this);
+  }
+
+  excluir(event) {
+    event.preventDefault();
+    this.state.pessoas.splice(event.target.id, 1);
+    this.setState({
+      pessoas: this.state.pessoas
+    })
   }
 
 
   cadastrarUsuario(evento) {
     evento.preventDefault();
+    this.setState({ pessoas: [...this.state.pessoas, [this.state.nome, this.state.telefone, this.state.email]] })
 
-    //para não escrever quando o cmapo esta vazio 
-    if (evento.target[0].value) {
-      this.setState({
-        pessoas: this.state.pessoas.concat([evento.target[0].value])
-
-      })
-    }
-  }
-
-  remover(evento) {
-    evento.preventDefault();
-    let pessoas = this.state.pessoas;
-    let pessoaEditar = this.state.inputValue;
-    let acheiIndex = pessoas.findIndex(x => x === pessoaEditar);
-    //removo do vetor
-    this.state.pessoas.splice(acheiIndex, 1);
-    //se não existir não retira
-    if (acheiIndex !== -1) {
-      this.setState({
-        pessoas: this.state.pessoas
-
-      })
-    }
-
-  }
-
-  guardovalor(evento) {
-    this.setState({
-      inputValue: evento.target.value
-    });
   }
 
   render() {
@@ -63,33 +36,37 @@ export default class CadastroUsuario extends Component {
       <>
         <form onSubmit={this.cadastrarUsuario}>
           <label>Nome</label>
-          <input type="text" value={this.state.value} onChange={this.guardovalor} />
+          <input type="text" onInput={(val) => { this.setState({ nome: val.target.value }) }} />
           <label>Email</label>
-          <input type="email" value={this.state.value} onChange={this.guardovalor} />
+          <input type="email" onInput={(val) => { this.setState({ email: val.target.value }) }} />
           <label>Telefone</label>
-          <input type="tel" value={this.state.value} onChange={this.guardovalor} />
+          <input type="tel" onInput={(val) => { this.setState({ telefone: val.target.value }) }} />
           <input type="submit" />
-          <button onClick={this.remover}>Remover</button>
+
         </form>
 
         <table>
-        <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
-            </tr>
+          <tbody>
             <tr>
-          {this.state.pessoas.forEach((element) => {
-            element.forEach(elemento => {
-           <td> {elemento} </td>
-            })
-          })
-        }
-            
+              <th>Nome</th>
+              <th>Telefone</th>
+              <th>E-mail</th>
+            </tr>
 
-         
 
-        </tr>
+            {this.state.pessoas.map((pessoa, index) => (
+
+              <tr key={index * 10}>
+                <td>{pessoa[0]}</td>
+                <td>{pessoa[1]}</td>
+                <td>{pessoa[2]}</td>
+                <td><button key={index} id={index} onClick={this.excluir}>Excluir</button></td>
+              </tr>
+
+            )
+            )}
+          </tbody>
+
         </table>
       </>
     );

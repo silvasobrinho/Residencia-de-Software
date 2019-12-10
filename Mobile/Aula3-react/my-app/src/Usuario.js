@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 //Componentes de Classe
@@ -36,11 +37,11 @@ export default class CadastroUsuario extends Component {
       <>
         <form onSubmit={this.cadastrarUsuario}>
           <label>Nome</label>
-          <input type="text" onInput={(val) => { this.setState({ nome: val.target.value }) }} />
+          <input className="col-md-5 form-control" type="text" onInput={(val) => { this.setState({ nome: val.target.value }) }} />
           <label>Email</label>
-          <input type="email" onInput={(val) => { this.setState({ email: val.target.value }) }} />
+          <input className="col-md-5 form-control" type="email" onInput={(val) => { this.setState({ email: val.target.value }) }} />
           <label>Telefone</label>
-          <input type="tel" onInput={(val) => { this.setState({ telefone: val.target.value }) }} />
+          <input className="col-md-5 form-control" type="tel" onInput={(val) => { this.setState({ telefone: val.target.value }) }} />
           <input type="submit" />
 
         </form>
@@ -72,3 +73,15 @@ export default class CadastroUsuario extends Component {
     );
   }
 }
+
+const style = {
+  input: {
+    paddingLeft: 10
+  },
+  h1: {
+    fontSize: 100
+  },
+  h1Color: {
+    color: "blue"
+  }
+};

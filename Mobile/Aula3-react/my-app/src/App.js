@@ -1,75 +1,100 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-
-
-//não tem o default tem que usar desconstruido na chamada e fazer a chamada
+import React, { Component } from "react";
+import InputComStyle from "./components/InputComStyle";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import LabelFormulario from "./components/LabelFormulario";
+import LinhasTabela from "./components/LinhasTabela";
 
 //Componentes de Classe
-export class CadastroUsuario extends Component {
-  constructor(){
-    super()
+export default class CadastroUsuario extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nome: "",
+      email: "",
+      telefone: "",
+      pessoas: []
+    };
   }
 
-  render() {
+  delete = indexRemover => {
+    this.setState({
+      pessoas: this.state.pessoas.filter(
+        (pessoa, index) => indexRemover !== index
+      )
+    });
+  };
+
+  renderTitulo() {
+    return <h1>Cadastro de Usuários</h1>;
+  }
+
+  renderFormulario() {
     return (
       <form onSubmit={this.cadastrarUsuario}>
-        <input type="text" placeholder="Nome" />
-        <input type="submit" />
+        <InputComStyle
+          titulo="Nome"
+          tipo="text"
+          valor={this.state.nome}
+          atualizarValor={e => this.setState({ nome: e.target.value })}
+        />
+        <InputComStyle
+          titulo="Telefone"
+          tipo="text"
+          valor={this.state.telefone}
+          atualizarValor={e => this.setState({ telefone: e.target.value })}
+        />
+        <InputComStyle titulo="E-mail" tipo="email" valor={this.state.email} atualizarValor={e => this.setState({ email: e.target.value })}/>
+
+        <input className="btn btn-primary" type="submit" />
       </form>
     );
   }
-  cadastrarUsuario(evento){
-    evento.preventDefault();
-    console.log(evento.target.value)
-  }
-}
 
-export class ListagemUsuario extends Component {
-  constructor(){
-    super()
-    this.state = { pessoas: ["João","Pedro","Giovane","Maiana","Rosa","Bananinha"]}
+  renderTabela() {
+    return (
+      <table className="table table-dark">
+      
+        <LabelFormulario />
+        
+        < LinhasTabela pessoas={this.state.pessoas}
+        pessoa={this.state.pessoa}
+        delete={this.delete}
+        
+         />
+      </table>
+    );
   }
-  
-  
+
   render() {
     return (
-      <ul>
-        {this.state.pessoas.map(nome => <li>{nome}</li>)}
-        
-      </ul>
+      <>
+        {this.renderTitulo()}
+        {this.renderFormulario()}
+        {this.renderTabela()}
+      </>
     );
   }
+
+  cadastrarUsuario = evento => {
+    evento.preventDefault();
+    console.log(evento.target)
+    if(this.state.nome != '' && this.state.telefone != '' && this.state.email != ''){
+    this.setState({
+      pessoas: [
+        ...this.state.pessoas,
+        {
+          nome: this.state.nome,
+          telefone: this.state.telefone,
+          email: this.state.email
+        }
+      ],
+      nome: "",
+      email: "",
+      telefone: ""
+    });
+
+    console.log(this.state.nome);
+  };
 }
-
-
-//Componentes de classe e componentes funcionais são os dois tipos de componentes que existem
-//componentes de classe
-
-// toda classe tem que extender de component
-/* class App extends Component{  
-  //metodo responsavel para renderizar as coisas  na tela  
-  render(){
-      return (
-      <div>
-      <p> Olá, Olá</p>        
-      </div>
-      );
-    }
-} */
-
-// Componentes funcionais
-
-/* export default function App(){
-  
-    return (
-    <div>
-    <p> Olá, Olá, Olê</p>        
-    </div>
-    );
-  } */
-
-//se emportar na funcção não precisa no final, manter o nome da classe e da função no export
-/* export default App;
- */
+}

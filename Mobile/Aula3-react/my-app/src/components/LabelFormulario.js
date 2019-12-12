@@ -12,6 +12,7 @@ export default class LabelFormulario extends Component {
           <th>Nome</th>
           <th>Telefone</th>
           <th>E-mail</th>
+          <th>Excluir</th>
         </tr>
       </thead>
     );

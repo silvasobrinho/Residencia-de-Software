@@ -1,114 +1,159 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { StyleSheet, View, Text, FlatList, TextInput, Button } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+class HomeScreen extends React.Component {
+  constructor(props){
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+    super(props)
+    this.state={
+      text: "",
+      pessoas: [] 
+    }
 
-export default App;
+    this.inserirPessoa = this.inserirPessoa.bind(this)
+
+  }
+
+
+
+  renderItem(obj){
+    return(
+      <Text style={styles.item}>{obj.item.nome}</Text>
+    )
+  }
+
+  inserirPessoa(){
+    let newPessoa = {
+      key: this.state.pessoas.length.toString(),
+      nome: this.state.text,
+      //done: false
+    }
+
+    let pessoas = this.state.pessoas;
+    pessoas.push(newPessoa)
+    this.setState({pessoas})
+
+    let text = ""
+    this.setState({text})
+  }
+
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>App de Cadastro</Text>
+        <Button
+          title="Cadastrar"
+          onPress={() => {
+            /* Botão cadastrar na home */
+            this.props.navigation.navigate('CadastrarScreen', {
+             
+            });
+          }}
+        />
+         <Button
+          title="Listar"
+          onPress={() => {
+            /* 2. Botão listar na home */
+            this.props.navigation.navigate('ListarScreen', {
+            
+            });
+          }}
+        />
+      </View>
+    );
+  }
+}
+
+class CadastrarScreen extends React.Component {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    console.log(navigationOptions);
+    
+    return {
+      title: navigation.getParam('otherParam', 'A Nested Details Screen'),
+      headerStyle: {
+        backgroundColor: navigationOptions.headerTintColor,
+      },
+      headerTintColor: navigationOptions.headerStyle.backgroundColor,
+    };
+  };
+
+  render() {
+
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Cadastrar</Text>
+        <TextInput placeholder="Insira seu nome" style={styles.input} onChangeText={(text)=>{this.setState({text})}} value={this.state.text} />
+        <Button onPress={this.inserirPessoa} title="Inserir"/>
+        
+        <Button
+          title="Voltar"
+          onPress={() => this.props.navigation.navigate('Home')}
+        />
+        
+      </View>
+    );
+  }
+}
+
+class ListarScreen extends React.Component {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    console.log(navigationOptions);
+    return {
+      title: navigation.getParam('otherParam', 'A Nested Details Screen'),
+      headerStyle: {
+        backgroundColor: navigationOptions.headerTintColor,
+      },
+      headerTintColor: navigationOptions.headerStyle.backgroundColor,
+    };
+  };
+
+  render() {
+    
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Listagem</Text>
+        <FlatList style={styles.lista} data={this.state.pessoas} renderItem={this.renderItem} extraData={this.state}/>    
+               
+        <Button
+          title="Voltar"
+          onPress={() => this.props.navigation.navigate('Home')}
+        />
+        
+      </View>
+    );
+  }
+}
+
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Cadastrar: CadastrarScreen,
+    Listar: ListarScreen
+
+  },
+  {
+    initialRouteName: 'Home',
+    /* The header config from HomeScreen is now here */
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}

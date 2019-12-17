@@ -1,36 +1,97 @@
 import React from 'react';
-import { Button, Image, View, Text, StyleSheet, FlatList, TextInput } from 'react-native';
+import { Button, View,ScrollView, Text, StyleSheet, FlatList, TextInput } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 
-type Props = {};
-var pessoasUAU ;
 
 class HomeScreen extends React.Component {
+  constructor(props){
 
-    
+    super(props)
+    this.state={
+      text:'',
+      pessoas:  [],
+      quantidade: '',
+      preco: '' 
+      }
+      this.inserirPessoa = this.inserirPessoa.bind(this)
+      this.deletaritem = this.deletaritem.bind(this)
+    }
+
+    deletaritem(pos){
+
+      // bugado pois nao estou conseguindo mandar o state toda hora que muda, permanece o que eu enviei na rota a nao ser que scroola a tela ai atualiza
+
+     let pessoa = this.state.pessoas;
+      pessoa.splice(pos, 1);
+      this.setState.pessoas = pessoa;
+
+      
+      this.props.navigation.navigate('Listagem', {
+        text: this.state.text,
+        pessoas: this.state.pessoas, 
+        quantidade: this.qtd,
+        preco: this.preco,
+        deletaritem: this.deletaritem})
+    }
+    inserirPessoa(pessoa, qtd, preco){
+      let newPessoa = {
+        key: this.state.pessoas.length.toString(),
+        nome: pessoa,
+        quantidade: qtd,
+        preco: preco
+        //done: false
+      }
+  
+      let pessoas = this.state.pessoas;
+      pessoas.push(newPessoa)
+      this.setState({pessoas})
+  
+      let text = ""
+      this.setState({text})
+      console.log(this.state.pessoas)
+     
+   
+     
+    }
+
+
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View >
+        <View style={{  alignItems: 'center' }}>
         <Text>App de Cadastro</Text>
+        </View>
+        <View>
         <Button
-          title="Cadastrar"
+          title="Cadastrar" 
           onPress={() => {
             this.props.navigation.navigate('CadastrarS', {
-             
+             text: this.state.text,
+             pessoas: this.state.pessoas,
+             inserirPessoa: this.inserirPessoa.bind(this)
             });
           }}
         />
+        </View>
+
+        <View>
          <Button
-          title="Listar"
-          onPress={() => {
+          title="Listar" 
+          onPress={                            
+            () => {
             this.props.navigation.navigate('Listagem', {
-             
+              text: this.state.text,
+              pessoas: this.state.pessoas, 
+              quantidade: this.qtd,
+              preco: this.preco,
+              deletaritem: this.deletaritem             
             });
-          }}
+          } }
         />
+        </View>
       </View>
     );
   }
@@ -42,39 +103,14 @@ class CadastrarScreen extends React.Component {
 
         super(props)
         this.state={
-          text: "",
+          text: '',
+          qtd: '',
+          preco: '',
+          nome: '',
           pessoas: [] 
-        }
+        }      
+          }
     
-        this.inserirPessoa = this.inserirPessoa.bind(this)
-    
-      }
-    
-   
-    
-      inserirPessoa(){
-        let newPessoa = {
-          key: this.state.pessoas.length.toString(),
-          nome: this.state.text,
-          //done: false
-        }
-    
-        let pessoas = this.state.pessoas;
-        pessoas.push(newPessoa)
-        this.setState({pessoas})
-    
-        let text = ""
-        this.setState({text})
-        console.log(this.state.pessoas)
-        pessoasUAU = this.state.pessoas
-        console.log("UAAAAAU" , pessoasUAU)
-      }
-
-
-
-
-
-
   static navigationOptions = ({ navigation, navigationOptions }) => {
     console.log(navigationOptions);
 
@@ -92,17 +128,19 @@ class CadastrarScreen extends React.Component {
 
   render() {
  
-
+/* alert(this.props.navigation.getParam('text')) */
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
+        <Text>Cadastre seu produto</Text>
         <View style={styles.inputView}>
           <TextInput placeholder="Insira seu nome" style={styles.input} onChangeText={(text)=>{this.setState({text})}}  value={this.state.text}  />
-           <Button onPress={this.inserirPessoa} title="Inserir"/>
+          <TextInput placeholder="Insira a quantidade" style={styles.input} onChangeText={(qtd)=>{this.setState({qtd})}}  value={this.state.qtd}  />
+          <TextInput placeholder="Insira o preço" style={styles.input} onChangeText={(preco)=>{this.setState({preco})}}  value={this.state.preco}  />
+           <Button onPress={()=>{this.setState({nome: this.state.text}); this.props.navigation.state.params.inserirPessoa(this.state.text,this.state.qtd, this.state.preco)}} title="Inserir"/>
 
         </View>
          <Button
-          title="Go back"
+          title="Voltar"
           onPress={() => this.props.navigation.goBack()}
         />
       </View>
@@ -111,19 +149,28 @@ class CadastrarScreen extends React.Component {
 }
 
 class ListagemScreen extends React.Component {
-    constructor(props){
+  constructor(props){
 
-        super(props)
-        this.state={
-          text: "",
-          pessoas: []
-        }
+    super(props)
+    this.state={
+      text: this.props.navigation.getParam('text'),
+      pessoas: this.props.navigation.getParam('pessoas'),
+      quantidade: this.props.navigation.getParam('quantidade'),
+      preco: this.props.navigation.getParam('preco'),
+      selected: true,
     }
+    this.renderItem = this.renderItem.bind(this)
+  }
         
     renderItem(obj){
         
         return(
-          <Text style={styles.item}>{obj.item.nome}</Text>
+          <ScrollView>
+     <View>     
+    <Text style={styles.item}> Produto: {obj.item.nome}      Quantidade: {obj.item.quantidade}      Preço: {obj.item.preco}{console.log(obj)}
+    
+    </Text><Button title="Deletar" onPress={()=>{this.props.navigation.state.params.deletaritem(obj.index)}}/></View>
+    </ScrollView>
         )
       }
 
@@ -145,9 +192,8 @@ class ListagemScreen extends React.Component {
     render() {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Details Screen</Text>
-         
-          <FlatList style={styles.lista} data={this.state.pessoas} renderItem={this.renderItem} extraData={this.state}/> 
+          <Text>Lista de produtos Cadastrados</Text>
+              <FlatList style={styles.lista} data={this.state.pessoas} renderItem={(this.renderItem)} extraData={this.state.pessoas}/> 
 
           <Button
             title="Voltar"
@@ -194,9 +240,9 @@ const styles = StyleSheet.create({
     item:{
       paddingTop: 20,
       paddingBottom: 20,
-      backgroundColor: '#E4EBEE',
       fontSize: 18,
       marginBottom: 5,
+      marginRight: 10,
       textAlign: 'center'
     },
   
@@ -206,7 +252,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       margin: 5,
     },
-  
+ 
     
     input:{
       backgroundColor: '#fff',

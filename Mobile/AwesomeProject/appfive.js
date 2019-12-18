@@ -16,25 +16,9 @@ class HomeScreen extends React.Component {
       preco: '' 
       }
       this.inserirPessoa = this.inserirPessoa.bind(this)
-      this.deletaritem = this.deletaritem.bind(this)
-    }
+       }
 
-    deletaritem(pos){
 
-      // bugado pois nao estou conseguindo mandar o state toda hora que muda, permanece o que eu enviei na rota a nao ser que scroola a tela ai atualiza
-
-     let pessoa = this.state.pessoas;
-      pessoa.splice(pos, 1);
-      this.setState.pessoas = pessoa;
-
-      
-      this.props.navigation.navigate('Listagem', {
-        text: this.state.text,
-        pessoas: this.state.pessoas, 
-        quantidade: this.qtd,
-        preco: this.preco,
-        deletaritem: this.deletaritem})
-    }
     inserirPessoa(pessoa, qtd, preco){
       let newPessoa = {
         key: this.state.pessoas.length.toString(),
@@ -133,15 +117,17 @@ class CadastrarScreen extends React.Component {
         quantidade: this.state.qtd
       })
       .then(function (response) {
-        this.setState({nome: ''}),
-        this.setState({preco: ''}),
-        this.setState({quantidade: ''})
+
       })
       .catch(function (error) {
         console.log(error);
       });
 
-
+      console.log("Estado nome          "+this.state.nome)
+      this.setState({nome: ''});
+      this.setState({preco: ''});
+      this.setState({qtd: ''});
+      console.log("Estado nome @2         "+this.state.nome)
   }
 
   render() {
@@ -170,32 +156,54 @@ class ListagemScreen extends React.Component {
   constructor(props){
 
     super(props)
+    this.getinfos();
     this.state={
       listagem: []
     
     }
     this.renderItem = this.renderItem.bind(this)
+    this.getinfos = this.getinfos.bind(this)
+    this.deletaritem = this.deletaritem.bind(this)
   }
-        
-    renderItem(obj){
-        api.get('/listar')
+
+  deletaritem(pos){
+
+    // bugado pois nao estou conseguindo mandar o state toda hora que muda, permanece o que eu enviei na rota a nao ser que scroola a tela ai atualiza
+
+   let lista = this.state.listagem;
+    lista.splice(pos, 1);
+    this.setState.listagem = lista;
+
+  }
+     
+    async getinfos(){
+      let resposta= [];
+
+      await api.get('/listar')
           .then(function (response) {
-            /* this.setState({listagem: response.}), */
-            
-           console.log(response)
+
+            resposta= [...response.data];
+           
+           
           })
           .catch(function (error) {
             console.log(error);
           });
 
+          this.setState({listagem: resposta})
+
+    }
+
+
+    renderItem(obj){      
 
         return(
-          <ScrollView>
+         
      <View>     
-    <Text style={styles.item}> Produto: {obj.item.nome}      Quantidade: {obj.item.quantidade}      Preço: {obj.item.preco}{console.log(obj)}
+    <Text style={styles.item} key={obj.index}> Produto: {obj.item.nome}      Quantidade: {obj.item.quantidade}      Preço: {obj.item.preco}{console.log(obj)}
     
-    </Text><Button title="Deletar" onPress={()=>{this.props.navigation.state.params.deletaritem(obj.index)}}/></View>
-    </ScrollView>
+    </Text><Button title="Deletar" onPress={()=>{this.deletaritem(obj.index)}}/></View>
+  
         )
       }
 
@@ -216,9 +224,11 @@ class ListagemScreen extends React.Component {
   
     render() {
       return (
+
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          
           <Text>Lista de produtos Cadastrados</Text>
-              <FlatList style={styles.lista} data={this.state.pessoas} renderItem={(this.renderItem)} extraData={this.state.pessoas}/> 
+              <FlatList style={styles.lista} keyExtractor={(item) => item.id} data={this.state.listagem} renderItem={this.renderItem} extraData={this.state} key={"uu"}/> 
 
           <Button
             title="Voltar"

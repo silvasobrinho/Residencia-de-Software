@@ -11,7 +11,7 @@ namespace ConsoleApp2
             int qtdNotas = Convert.ToInt32(Console.ReadLine());
 
             double[] notas = new double [qtdNotas];
-            double maior = -1, menor = 10000000 ,media = 0;
+            double maior = -9999999999, menor = 9999999999, media = 0;
 
 
             for(int i = 0; i< qtdNotas;i++)

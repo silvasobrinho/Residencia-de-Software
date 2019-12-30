@@ -1,0 +1,10 @@
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\obj\Debug\netcoreapp3.1\ClassesPOO.AssemblyInfoInputs.cache
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\obj\Debug\netcoreapp3.1\ClassesPOO.AssemblyInfo.cs
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\bin\Debug\netcoreapp3.1\ClassesPOO.exe
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\bin\Debug\netcoreapp3.1\ClassesPOO.deps.json
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\bin\Debug\netcoreapp3.1\ClassesPOO.runtimeconfig.json
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\bin\Debug\netcoreapp3.1\ClassesPOO.runtimeconfig.dev.json
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\bin\Debug\netcoreapp3.1\ClassesPOO.dll
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\bin\Debug\netcoreapp3.1\ClassesPOO.pdb
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\obj\Debug\netcoreapp3.1\ClassesPOO.dll
+C:\Users\EU447\OneDrive\Documents\GitHub\Residencia-de-Software\.Net\trabalho00\ClassesPOO\ClassesPOO\obj\Debug\netcoreapp3.1\ClassesPOO.pdb

@@ -1,4 +1,4 @@
-const url = 'http://55ba2504.ngrok.io';
+const url = 'http://localhost:3000';
 
 
 function limpaform(){

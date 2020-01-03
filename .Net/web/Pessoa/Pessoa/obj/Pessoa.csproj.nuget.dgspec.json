@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\trabalho00\\ClassesPOO\\ClassesPOO\\ClassesPOO.csproj": {}
+    "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\trabalho00\\ClassesPOO\\ClassesPOO\\ClassesPOO.csproj": {
+    "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\trabalho00\\ClassesPOO\\ClassesPOO\\ClassesPOO.csproj",
-        "projectName": "ClassesPOO",
-        "projectPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\trabalho00\\ClassesPOO\\ClassesPOO\\ClassesPOO.csproj",
+        "projectUniqueName": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj",
+        "projectName": "Pessoa",
+        "projectPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj",
         "packagesPath": "C:\\Users\\Aluno22\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\trabalho00\\ClassesPOO\\ClassesPOO\\obj\\",
+        "outputPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aluno22\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -48,6 +48,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

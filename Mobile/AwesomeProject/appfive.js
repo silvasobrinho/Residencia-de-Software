@@ -112,9 +112,9 @@ class CadastrarScreen extends React.Component {
 
   enviarInfos(){
     api.post('/cadastrar', {
-        nome: this.state.nome,
-        preco: this.state.preco,
-        quantidade: this.state.qtd
+      produto: produto,
+      valor: valor,
+      quantidade: quantidade,
       })
       .then(function (response) {
 

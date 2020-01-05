@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj": {}
+    "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj": {
+    "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj",
+        "projectUniqueName": "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj",
         "projectName": "Pessoa",
-        "projectPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj",
-        "packagesPath": "C:\\Users\\Aluno22\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\obj\\",
+        "projectPath": "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\Pessoa.csproj",
+        "packagesPath": "C:\\Users\\EU447\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa\\Pessoa\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aluno22\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EU447\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -37,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

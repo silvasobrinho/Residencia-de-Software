@@ -54,8 +54,10 @@ namespace Pessoa.Controllers
             int idade = (values.GetProperty("idade").GetInt32());
             
             int index = listaPessoa.FindIndex(x=> x.nome == nome && x.idade == idade);
-            listaPessoa.RemoveAt(index);
-    
+            if (index > -1)
+            {
+                listaPessoa.RemoveAt(index);
+            }
             
         }
 

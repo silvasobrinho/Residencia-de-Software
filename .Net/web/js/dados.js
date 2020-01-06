@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000';
+const url = 'https://localhost:44384/pessoas';
 
 
 function limpaform(){
@@ -11,7 +11,7 @@ function limpaform(){
 
 async function pegadados(){
 
-   await axios.get(url + '/listar')
+   await axios.get(url )
       .then(response => {
           console.log(response.data)
          let dadosCarregados = response.data;
@@ -19,16 +19,16 @@ async function pegadados(){
             console.log("aaa      "+element);
         $("tbody").append(`
         <tr>
-        <td>${element.produto}</td>
+        <td>${element.nome}</td>
         <td>${element.quantidade}</td>
-        <td>${element.valor}</td>
-        <td><button onclick="deletar('${element.produto}')">Deletar</button></td>
+        <td>R$: ${element.preco}</td>
+        <td><button onclick="deletar('${element.nome}', '${element.preco}','${element.quantidade}')">Deletar</button></td>
         <tr>
         `)
      
 
     });
-    
+		
       })
       .catch(error => {
         console.log(error);
@@ -41,9 +41,30 @@ function recarrega(){
    window.location.href="index.html";
 }
 async function gravadados(){
-    event.preventDefault();
-    axios.post(url + '/cadastrar', {
-        produto: $("#produto").val(),
+  event.preventDefault();
+  console.log("aqui")
+  axios({
+    method: 'post',
+    url : url ,
+     data: {
+    nome: $("#produto").val(),
+    valor: $("#valorproduto").val(),
+    quantidade: $("#qtdproduto").val(),
+    }
+  })
+    .then(function (response) {
+    console.log("resolveu")
+    //limpaform();
+    //recarrega();
+    })
+    .catch(function (error) {
+
+      console.log(error);
+    })
+
+  /* event.preventDefault();
+    axios.post(url , {
+        nome: $("#produto").val(),
         valor: $("#valorproduto").val(),
         quantidade: $("#qtdproduto").val(),
         })
@@ -55,20 +76,29 @@ async function gravadados(){
         .catch(function (error) {
           console.log(error);
         })
-        .finally( ()=>{ })
+        .finally( ()=>{ }) */
 }
 
-async function deletar (nome){
-     axios.delete(url + '/deletar/'+ nome )
+async function deletar (nome , valor, quantidade){
+	console.log(nome +"  " + valor + "   " + quantidade)
+     axios.delete(url, {
+	 params:
+	 {
+		 nome: nome,
+		 valor: valor,
+		 quantidade: quantidade
+	 }
+} )
     .then( res =>{
-        console.log(resolveu)
+        console.log("resolveu")
     })
     .catch( (err)=>{
         console.log(err)
     })
     .finally(()=>{ 
-        console.log(url + '/deletar/'+ nome)
-        recarrega()  }); 
+        
+        //recarrega()  }); 
+		})
     }
        
       /*   axios({

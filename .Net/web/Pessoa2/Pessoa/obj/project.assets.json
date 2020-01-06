@@ -4646,9 +4646,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Pessoa.csproj",
-      "projectName": "Pessoa",
-      "projectPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Pessoa.csproj",
+      "projectUniqueName": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Produto.csproj",
+      "projectName": "Produto",
+      "projectPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Produto.csproj",
       "packagesPath": "C:\\Users\\Aluno22\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\obj\\",
       "projectStyle": "PackageReference",

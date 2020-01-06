@@ -1,4 +1,4 @@
-const url = 'https://localhost:44384/pessoas';
+const url = 'https://localhost:44384/produtos';
 
 
 function limpaform(){
@@ -42,20 +42,21 @@ function recarrega(){
 }
 async function gravadados(){
   event.preventDefault();
+  console.log("peço: "+ $("#valorproduto").val()); 
   console.log("aqui")
   axios({
     method: 'post',
     url : url ,
-     data: {
+     params: {
     nome: $("#produto").val(),
-    valor: $("#valorproduto").val(),
+    preco: $("#valorproduto").val(),
     quantidade: $("#qtdproduto").val(),
     }
   })
     .then(function (response) {
     console.log("resolveu")
-    //limpaform();
-    //recarrega();
+    limpaform();
+    recarrega();
     })
     .catch(function (error) {
 
@@ -81,14 +82,15 @@ async function gravadados(){
 
 async function deletar (nome , valor, quantidade){
 	console.log(nome +"  " + valor + "   " + quantidade)
-     axios.delete(url, {
-	 params:
-	 {
-		 nome: nome,
-		 valor: valor,
-		 quantidade: quantidade
-	 }
-} )
+      axios({
+    method: 'delete',
+    url : url ,
+     params: {
+    nome: $("#produto").val(),
+    preco: $("#valorproduto").val(),
+    quantidade: $("#qtdproduto").val(),
+    }
+  })
     .then( res =>{
         console.log("resolveu")
     })

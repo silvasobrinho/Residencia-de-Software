@@ -39,10 +39,12 @@ namespace Pessoa.Controllers
         [HttpDelete]
 
         public void deletar([FromQuery] Produtos produto)
-        {   
+        {
+            System.Diagnostics.Debug.WriteLine(produto.nome + "    " + produto.preco + "    " + produto.quantidade);
+            System.Diagnostics.Debug.WriteLine(produto);
             int index = listaPessoa.FindIndex(x=> x.nome == produto.nome && x.quantidade == produto.quantidade && x.preco == produto.preco);
             System.Diagnostics.Debug.WriteLine(index);
-            listaPessoa.RemoveAt(index);
+           listaPessoa.RemoveAt(index);
         }
 
         [HttpGet]

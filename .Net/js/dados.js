@@ -1,4 +1,4 @@
-const url = 'https://localhost:44384/produtos';
+const url = 'https://localhost:44307/produtos';
 
 
 function limpaform(){
@@ -82,15 +82,16 @@ async function gravadados(){
 
 async function deletar (nome , valor, quantidade){
 	console.log(nome +"  " + valor + "   " + quantidade)
-      axios({
-    method: 'delete',
-    url : url ,
-     params: {
-    nome: $("#produto").val(),
-    preco: $("#valorproduto").val(),
-    quantidade: $("#qtdproduto").val(),
+      axios.delete(url , { 
+  params: {
+        nome: nome,
+        preco: valor,
+        quantidade: quantidade,
+          }
+    }, {headers: {
+      "Content-Type": "application/json"}
     }
-  })
+  )
     .then( res =>{
         console.log("resolveu")
     })
@@ -99,8 +100,8 @@ async function deletar (nome , valor, quantidade){
     })
     .finally(()=>{ 
         
-        //recarrega()  }); 
-		})
+        recarrega()  }); 
+		
     }
        
       /*   axios({

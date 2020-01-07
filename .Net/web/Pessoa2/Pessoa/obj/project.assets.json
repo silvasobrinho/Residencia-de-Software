@@ -4641,19 +4641,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Aluno22\\.nuget\\packages\\": {}
+    "C:\\Users\\EU447\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Produto.csproj",
+      "projectUniqueName": "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Produto.csproj",
       "projectName": "Produto",
-      "projectPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Produto.csproj",
-      "packagesPath": "C:\\Users\\Aluno22\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aluno22\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\obj\\",
+      "projectPath": "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\Produto.csproj",
+      "packagesPath": "C:\\Users\\EU447\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\EU447\\OneDrive\\Documents\\GitHub\\Residencia-de-Software\\.Net\\web\\Pessoa2\\Pessoa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Aluno22\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\EU447\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4713,7 +4713,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Cors 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "O pacote 'Microsoft.AspNet.Cors 5.2.7' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v3.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "Microsoft.AspNet.Cors",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -4723,7 +4723,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "O pacote 'Microsoft.AspNet.WebApi.Core 5.2.7' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v3.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -4733,7 +4733,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.Cors 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "O pacote 'Microsoft.AspNet.WebApi.Cors 5.2.7' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v3.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "Microsoft.AspNet.WebApi.Cors",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
